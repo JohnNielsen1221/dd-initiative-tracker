@@ -10,20 +10,20 @@
 </head>
 
 <body>
-    <header class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1 w-100 text-center">Dungeons & Dragons Initiative Tracker</span>
+    <header class="top-bar top-bar-dark bg-dark">
+        <span class="top-bar-brand mb-0 h1 w-100 text-center">Dungeons & Dragons Initiative Tracker</span>
     </header>
-    <div class='card'>
-        <div class='row'>
-            <div class='col-6 align-center'>
+    <div class='grid-container'>
+        <div class="grid-x grid-padding-x">
+            <div class='medium-6 cell'>
                 <h1>PLAYERS</h1>
-                <button>Add Player</button>
+                <button class="button button-primary">Add Player</button>
             </div>
-            <div class='col-6' id='monster-container'>
+            <div class='medium-6 ' id='monster-container '>
                 <h1>MONSTERS</h1>
                 <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="search-button">
+                    <button class="button button-primary" type="button" id="search-button">
                             Add Monster
                         </button>
                 </div>
@@ -32,12 +32,12 @@
         </div>
     </div>
     <button> Start Battle!</button>
-    <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
-    <script src='./assets/js/homepage.js'></script>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
+    <script src='https://unpkg.com/axios/dist/axios.min.js '></script>
+    <script src='assets/js/homepage.js '></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/what-input.js"></script>
+    <script src="assets/js/foundation.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
