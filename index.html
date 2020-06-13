@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>D&D Initiative Tracker</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class='row'>
+            <div class='card-panel grey darken-3 align-center '>
+                <h1 class="white-text">Dungeons & Dragons Initiative Tracker</h1>
+            </div>
+        </div>
+
+        <div class='container'>
+            <div class='row'>
+                <div class='col-6 align-center'>
+                    <h2>PLAYERS</h2>
+                    <button class="btn btn-primary">Add Player</button>
+                </div>
+                <div class='col-6' id='monster-container'>
+                    <h2>MONSTERS</h2>
+                    <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            Add Monster
+                        </button>
+                    </div>
+                    </input>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary"> Start Battle!</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+        <script src='./assets/js/homepage.js'></script>
+</body>
+
+</html>
