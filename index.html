@@ -11,34 +11,45 @@
 <body>
     <div class="container">
         <div class='row'>
-            <div class='card-panel grey darken align-center '>
+            <div class='card-panel grey darken align-center'>
                 <h1 class="white-text">Dungeons & Dragons Initiative Tracker</h1>
             </div>
         </div>
 
         <div class='container'>
-            <div class='row'>
-                <div class='col-6 align-center'>
-                    <h2>PLAYERS</h2>
-                    <button class="btn btn-primary">Add Player</button>
-                </div>
-                <div class='col-6' id='monster-container'>
-                    <h2>MONSTERS</h2>
-                    <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="search-button">
+            <div class="row">
+
+                <div class="col m3 hide-on-small-only" id='monster-container'> </div>
+                <div class="col m9 s12">
+                    <div class=' col m12 s12 align-center '>
+                        <h2>PLAYERS</h2>
+                        <button class="btn btn-primary">Add Player</button>
+                    </div>
+
+
+
+                    <div class=' col m6 s12'>
+                        <h2>MONSTERS</h2>
+                        <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="search-button">
                             Add Monster
                         </button>
-                    </div>
-                    </input>
-                </div>
-            </div>
-        </div>
-        <button class="btn btn-primary"> Start Battle!</button>
+                        </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
-        <script src='./assets/js/homepage.js'></script>
+
+                        </input>
+                    </div>
+
+
+                </div>
+                <div class="hide-on-med-and-up" id='monster-container-sm'>Some Static text</div>
+                <button class="btn btn-primary"> Start Battle!</button>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+                <script src='https://unpkg.com/axios/dist/axios.min.js '></script>
+                <script src='./assets/js/homepage.js '></script>
 </body>
 
 </html>
