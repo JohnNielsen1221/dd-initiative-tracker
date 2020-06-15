@@ -1,10 +1,8 @@
 .formContainer {
-    width: 90%;
+    width: 100%;
     /* padding: 5% 0 5%; */
-    margin-left: 1%;
-    margin-right: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
-.h5 {
-    margin-top: 0;
-}
+
