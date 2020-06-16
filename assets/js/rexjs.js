@@ -1,6 +1,9 @@
 // $( document ).ready(function() {
 // setup button to save to local storage
-$("#addplayerSubmit").click(function () {
+
+$("#addplayerSubmit").click(function (event) {
+    event.preventDefault();
+
     var playerName = $("#playerName").val();
     var playerClass = $("#playerClass").val();
     var playerRace = $("#playerRace").val();
@@ -27,21 +30,35 @@ $("#addplayerSubmit").click(function () {
     var statusEffectTwo = $("#statusEffectTwo").val();
     var statusEffectThree = $("#statusEffectThree").val();
 
+    var loadplayerInfo = function () {
+        $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>"+ playerName + "</u></b>" + "    Player Class: " + "<u><b>"+ playerClass + "</u></b>" + "Player Race: " + "<u><b>"+ playerRace + "       "+ "</u></b>" + "         Player Health: " + "<u><b>"+ healthPoints);
+
+    };
+    loadplayerInfo();
+
+
     var arrayForm = [playerName, playerClass,playerRace,healthPoints,strength,dexterity,intelligence,wisdom,constitution,charisma,weaponsOne,weaponsTwo,weaponsThree,weaponsFour,weaponsFive,weaponsSix,weaponsSeven,weaponsEight,spellOne,spellTwo,spellThree,spellFour,statusEffectOne,statusEffectTwo,statusEffectThree,statusEffectFour];
 
     // var texttoEnter = arrayForm;
     var texttoEnterJSON = JSON.stringify(arrayForm);
     localStorage.setItem("addplayerSubmitLocalStorage", texttoEnterJSON);
+    loadText();
 });
+
+
     // recall local storage
-    // var loadText = function () {
-    //     texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
-    //     document.getElementById("addplayerSubmit").value = arrayForm;
-    // };
-    // loadText();
+    var loadText = function () {
+        texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
+        $("#inbox").html(texttoEnter[4]);
+    };
+
+    
+    
 
 
 // });
+
+
 
 // johns code
 
