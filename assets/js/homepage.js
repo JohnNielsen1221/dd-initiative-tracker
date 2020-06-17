@@ -5,7 +5,7 @@ var monsterContainerEl = document.getElementById('monsterList-container')
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
 console.log(searchHistory);
 
-$("#addplayerSubmit").click(function (event) {
+$("#addplayerSubmit").click(function(event) {
     event.preventDefault();
 
     var playerName = $("#playerName").val();
@@ -34,7 +34,7 @@ $("#addplayerSubmit").click(function (event) {
     var statusEffectTwo = $("#statusEffectTwo").val();
     var statusEffectThree = $("#statusEffectThree").val();
 
-    var loadplayerInfo = function () {
+    var loadplayerInfo = function() {
         $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>" + playerName + "</u></b>" + "    Player Class: " + "<u><b>" + playerClass + "</u></b>" + "Player Race: " + "<u><b>" + playerRace + "       " + "</u></b>" + "         Player Health: " + "<u><b>" + healthPoints);
 
     };
@@ -51,7 +51,7 @@ $("#addplayerSubmit").click(function (event) {
 
 
 // recall local storage
-var loadText = function () {
+var loadText = function() {
     texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
     $("#inbox").html(texttoEnter[4]);
 };
@@ -59,7 +59,7 @@ var loadText = function () {
 
 
 //initialize search for given monster name
-searchEl.addEventListener('click', function () {
+searchEl.addEventListener('click', function() {
     var searchTerm = inputEl.value;
     getMonster(searchTerm);
     searchHistory.push(searchTerm);
@@ -68,9 +68,10 @@ searchEl.addEventListener('click', function () {
 
 function getMonster(name) {
     axios.get(queryURL + name)
-        .then(function (response) {
+        .then(function(response) {
             var monsterCardEl = document.createElement('div');
-            monsterCardEl.classList = ('card monsterList-container');
+            monsterCardEl.classList = ('card');
+
 
             var monsterContent = document.createElement('div');
             monsterContent.classList = ('card-content');
@@ -78,31 +79,18 @@ function getMonster(name) {
 
             var monsterName = document.createElement('p');
             monsterName.classList = ('card-title monsterName');
-            monsterName.innerText = response.data.name;
+            monsterName.innerText = 'Name: ' + response.data.name;
             monsterCardEl.appendChild(monsterName);
-
-            var monsterInfo = document.createElement('p');
-            monsterInfo.classList = ('card-title monsterInfo');
-            monsterInfo.innerText = response.data.size + ' ' + response.data.type + ', ' + response.data.alignment;
-            monsterCardEl.appendChild(monsterInfo);
 
             var monsterHP = document.createElement('a');
             monsterHP.classList = ('tooltipped btn');
+            // monsterHP.setAttribute ('href','#');
             monsterHP.setAttribute('data-position', 'right');
-            monsterHP.setAttribute('data-tooltip', response.data.hit_points + ' (' + response.data.hit_dice + ')');
+            monsterHP.setAttribute('data-tooltip', response.data.hit_points);
             monsterHP.innerText = 'HP';
             monsterCardEl.appendChild(monsterHP);
 
             M.Tooltip.init(monsterHP);
-
-            var monsterSpeed = document.createElement('a');
-            monsterSpeed.classList = ('tooltipped btn');
-            monsterSpeed.setAttribute('data-position', 'right');
-            monsterSpeed.setAttribute('data-tooltip', response.data.speed);
-            monsterSpeed.innerText = 'Speed';
-            monsterCardEl.appendChild(monsterSpeed);
-
-            M.Tooltip.init(monsterSpeed);
 
             // var hpDropdown = document.createElement('ul');
             // hpDropdown.classList = ('dropdown-content');
@@ -127,18 +115,36 @@ function getMonster(name) {
 
             M.Tooltip.init(monsterStats);
 
+            var monsterArmorClass = document.createElement('a');
+            monsterArmorClass.classList = ('tooltipped btn');
+            monsterArmorClass.setAttribute('data-position', 'right');
+            monsterArmorClass.setAttribute('data-tooltip', response.data.armor_class);
+            monsterArmorClass.innerText = 'Armor Class';
+            monsterCardEl.appendChild(monsterArmorClass);
+
+            M.Tooltip.init(monsterArmorClass);
+
+            var monsterSpeed = document.createElement('a');
+            monsterSpeed.classList = ('tooltipped btn');
+            monsterSpeed.setAttribute('data-position', 'right');
+            monsterSpeed.setAttribute('data-tooltip', 'WALK:' + response.data.speed.walk + ' | ' + 'SWIM:' + response.data.speed.swim);
+            monsterSpeed.innerText = 'Speed';
+            monsterCardEl.appendChild(monsterSpeed);
+
+            M.Tooltip.init(monsterSpeed);
+
             monsterContainerEl.appendChild(monsterCardEl);
         });
 }
 
 // generates content for the modal
-var modalHandler = function (playerEl) {
+var modalHandler = function(playerEl) {
     var playerContainerEl = $("#monsterList-container") // #monsterList-container needs to be switched to player
     var playerList = playerContainerEl.find(".monsterName") || []; // .monsterName needs to be switched to player name
     console.log(playerList);
 
     // takes each player entered and makes their name into a button in the modal
-    playerList.each(function () {
+    playerList.each(function() {
         var playerName = $(this).text().split(":")[1].trim();
         var modalButtonEl = $("<a>").addClass("waves-effect waves-light btn").text(playerName);
         var modalContentEl = $(".modal-content");
@@ -146,18 +152,18 @@ var modalHandler = function (playerEl) {
     });
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('.tooltipped').tooltip();
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('.modal').modal();
 });
 
-$("#startBtn").click(function () {
+$("#startBtn").click(function() {
     modalHandler($(this).html())
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
     $('.tabs').tabs();
 });
