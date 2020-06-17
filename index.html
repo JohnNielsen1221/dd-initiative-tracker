@@ -15,25 +15,191 @@
             <div class='col s6 align-center'>
                 <h1>PLAYERS</h1>
                 <button>Add Player</button>
-                <!-- Example Card -->
-                <main>
-                    <section>
-                        <article>
-                            <div class="card m-5 shadow" style="width: 18rem;">
-                                <div class="card-body">
-                                  <h5 class="card-title">Maertin Daggerhelm</h5>
-                                  <p class="card-text">Dwarf Rogue</p>
-                                  <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Health Points" data-content="42">HP</a>
-                                  <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Character Statistics" data-content="Str: +1, Dex: +3, Int: +0, Wis: +1, Con: +1, Cha: +3">Stats</a>
-                                  <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Weapons on Hand" data-content="Dagger, Light-Crossbow">Weapons</a>
-                                  <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Spells" data-content="Lights, Prestidigitation">Spells</a>
-                                  <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Status Effects" data-content="Prone, Charmed">Conditions</a>
-                                </div>
-                                
-                              </div>
-                        </article>
-                    </section>
             </div>
+            <div class="formContainer">
+                <PlayerForm class="row">
+                   <div class="col s22 m12">
+                      <div class="row s2 m1 card blue-grey darken-1">
+                         <div class="card-content white-text">
+                            <span class="card-title center">
+                               <h5>Player Form Setup</h5>
+                            </span>
+                            <div class="card-action">
+                               <div class="row">
+                                  <h6>Player Nomenclature & Health</h6>
+                                  <div class="input-field col s4">
+                                     <input placeholder="Empty" id="playerName" type="text" class="validate">
+                                     <label for="playerName">Player Name</label>
+                                  </div>
+          
+                                  <div class="input-field col s3">
+                                     <input placeholder="Empty" id="playerClass" type="text" class="validate">
+                                     <label for="playerClass">Class</label>
+                                  </div>
+          
+                                  <div class="input-field col s3">
+                                     <input placeholder="Empty" id="playerRace" type="text" class="validate">
+                                     <label for="playerRace">Race</label>
+                                  </div>
+                                  <div class="input-field col s2">
+                                     <input placeholder="Empty" id="healthPoints" type="text" class="validate">
+                                     <label for="healthPoints">Health Points</label>
+                                  </div>
+                               </div>
+          
+                               <div class="row">
+                                  <h6>Character Statistics</h6>
+                                  <div class="input-field col s2">
+                                     <input placeholder="Empty" id="strength" type="text" class="validate">
+                                     <label for="strength">Strength</label>
+                                  </div>
+          
+                                  <div class="input-field col s2">
+                                     <input placeholder="Empty" id="dexterity" type="text" class="validate">
+                                     <label for="dexterity">Dexterity</label>
+                                  </div>
+          
+                                  <div class="input-field col s2">
+                                     <input placeholder="Empty" id="intelligence" type="text" class="validate">
+                                     <label for="intelligence">Intelligence</label>
+                                  </div>
+          
+                                  <div class="input-field col s2">
+                                     <input placeholder="Empty" id="wisdom" type="text" class="validate">
+                                     <label for="wisdom">Wisdom</label>
+                                  </div>
+          
+                                  <div class="input-field col s2">
+                                     <input placeholder="Empty" id="constitution" type="text" class="validate">
+                                     <label for="constitution">Constitution</label>
+                                  </div>
+          
+                                  <div class="input-field col s2">
+                                     <input placeholder="Empty" id="charisma" type="text" class="validate">
+                                     <label for="charisma">Charisma</label>
+                                  </div>
+                               </div>
+          
+                               <div class="row">
+                                  <h6>Weapons on Hand</h6>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsOne" type="text" class="validate">
+                                     <label for="weaponsOne">Weapon I</label>
+                                  </div>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsTwo" type="text" class="validate">
+                                     <label for="weaponsTwo">Weapon II</label>
+                                  </div>
+          
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsThree" type="text" class="validate">
+                                     <label for="weaponsThree">Weapon III</label>
+                                  </div>
+          
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsFour" type="text" class="validate">
+                                     <label for="weaponsFour">Weapon IV</label>
+                                  </div>
+          
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsFive" type="text" class="validate">
+                                     <label for="weaponsFive">Weapon V</label>
+                                  </div>
+          
+          
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsSix" type="text" class="validate">
+                                     <label for="weaponsSix">Weapon VI</label>
+                                  </div>
+          
+          
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsSeven" type="text" class="validate">
+                                     <label for="weaponsSeven">Weapon VII</label>
+                                  </div>
+          
+          
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="weaponsEight" type="text" class="validate">
+                                     <label for="weaponsEight">Weapon VIII</label>
+                                  </div>
+                               </div>
+          
+                               <div class="row">
+                                  <h6>Spells</h6>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="spellOne" type="text" class="validate">
+                                     <label for="spellOne">Spell I</label>
+                                  </div>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="spellTwo" type="text" class="validate">
+                                     <label for="spellTwo">Spell II</label>
+                                  </div>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="spellThree" type="text" class="validate">
+                                     <label for="spellThree">Spell III</label>
+                                  </div>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="spellFour" type="text" class="validate">
+                                     <label for="spellFour">Spell IV</label>
+                                  </div>
+                               </div>
+          
+                               <div class="row">
+                                  <h6>Status Effects</h6>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="statusEffectOne" type="text" class="validate">
+                                     <label for="statusEffectOne">Status Effect I</label>
+                                  </div>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="statusEffectTwo" type="text" class="validate">
+                                     <label for="statusEffectTwo">Status Effect II</label>
+                                  </div>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="statusEffectThree" type="text" class="validate">
+                                     <label for="statusEffectThree">Status Effect III</label>
+                                  </div>
+                                  <div class="input-field col s2 m3">
+                                     <input placeholder="Empty" id="statusEffectFour" type="text" class="validate">
+                                     <label for="statusEffectFour">Status Effect IV</label>
+                                  </div>
+                               </div>
+                               <a id="addplayerSubmit" class="waves-effect waves-light btn black">submit</a>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </PlayerForm>
+             </div>
+          
+             <div class="row">
+          
+                <div class="col s8 card small">
+                   <h6 id="playerInfo"></h6>
+          
+                   <ul class="tabs">
+                      <li class="tab col s3"><a href="#inbox">Stats</a></li>
+                      <li class="tab col s3"><a class="active" href="#unread">
+                            Weapons</a></li>
+                      <li class="tab col s3"><a href="#outbox">
+                            Spells</a></li>
+                      <li class="tab col s3"><a href="#sent">Conditions</a></li>
+                   </ul>
+          
+                   <div id="inbox" class="col s12">Statsvars</div>
+                   <div id="unread" class="col s12">Weaponsvars</div>
+                   <div id="outbox" class="col s12">Spellsvars</div>
+                   <div id="sent" class="col s12">Conditionsvars</div>
+                </div>
+          
+             </div>
+             <!-- <div class="row">
+                <div class="col s8 card small">
+                   <h1 id="playerTest"></h1>
+                   <div>
+                   </div>
+                </div>
+             </div> -->
             <div class='col s6' id='monsterList-container'>
                 <h1>MONSTERS</h1>
                 <input id="monster-input" type="text" class="form-control" placeholder="Enter Monster Name" aria-label="Enter Monster Name">
@@ -69,3 +235,19 @@
     <script src="assets/js/name-gen.js"></script>
 </body>
 </html>
+
+
+<!-- <article>
+    <div class="card m-5 shadow" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Maertin Daggerhelm</h5>
+          <p class="card-text">Dwarf Rogue</p>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Health Points" data-content="42">HP</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Character Statistics" data-content="Str: +1, Dex: +3, Int: +0, Wis: +1, Con: +1, Cha: +3">Stats</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Weapons on Hand" data-content="Dagger, Light-Crossbow">Weapons</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Spells" data-content="Lights, Prestidigitation">Spells</a>
+          <a tabindex="0" class="waves-effect waves-light btn-small" role="button" data-toggle="popover" data-trigger="focus" title="Status Effects" data-content="Prone, Charmed">Conditions</a>
+        </div>
+        
+      </div>
+</article> -->
