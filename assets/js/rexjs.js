@@ -1,5 +1,21 @@
 // $( document ).ready(function() {
-// setup button to save to local storage
+
+// removes submit form from startup of webpage
+window.onload = function () {
+    $("PlayerForm").hide();
+}
+
+$(document).ready(function () {
+    // hides submit form
+    $("#addplayerSubmit").click(function () {
+        $("PlayerForm").hide();
+    });
+    // shows submit form
+    $("#addPlayerBtn").click(function () {
+        $("PlayerForm").show();
+    });
+});
+
 
 $("#addplayerSubmit").click(function (event) {
     event.preventDefault();
@@ -26,18 +42,22 @@ $("#addplayerSubmit").click(function (event) {
     var spellTwo = $("#spellTwo").val();
     var spellThree = $("#spellThree").val();
     var spellFour = $("#spellFour").val();
-    var statusEffectOne = $("#statusEffectOne").val();
-    var statusEffectTwo = $("#statusEffectTwo").val();
-    var statusEffectThree = $("#statusEffectThree").val();
+    var conditionsEffectOne = $("#conditionsEffectOne").val();
+    var conditionsEffectTwo = $("#conditionsEffectTwo").val();
+    var conditionsEffectThree = $("#conditionsEffectThree").val();
+    var conditionsEffectFour = $("#conditionsEffectFour").val();
 
     var loadplayerInfo = function () {
-        $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>"+ playerName + "</u></b>" + "    Player Class: " + "<u><b>"+ playerClass + "</u></b>" + "Player Race: " + "<u><b>"+ playerRace + "       "+ "</u></b>" + "         Player Health: " + "<u><b>"+ healthPoints);
+        $("#playerInfo,#playerInfotwo").html("Player Name: " + "<u><b>" + playerName + "</u></b>" + "    Player Class: " + "<u><b>" + playerClass + "</u></b>" + "Player Race: " + "<u><b>" + playerRace + "       " + "</u></b>" + "         Player Health: " + "<u><b>" + healthPoints);
 
     };
     loadplayerInfo();
 
 
-    var arrayForm = [playerName, playerClass,playerRace,healthPoints,strength,dexterity,intelligence,wisdom,constitution,charisma,weaponsOne,weaponsTwo,weaponsThree,weaponsFour,weaponsFive,weaponsSix,weaponsSeven,weaponsEight,spellOne,spellTwo,spellThree,spellFour,statusEffectOne,statusEffectTwo,statusEffectThree,statusEffectFour];
+    // var arrayForm = [{"playerName" : playerName, playerClass, playerRace, healthPoints, strength, dexterity, intelligence, wisdom, constitution, charisma, weaponsOne, weaponsTwo, weaponsThree, weaponsFour, weaponsFive, weaponsSix, weaponsSeven, weaponsEight, spellOne, spellTwo, spellThree, spellFour, conditionsEffectOne, conditionsEffectTwo, conditionsEffectThree, conditionsEffectFour}];
+
+    var arrayForm = [playerName, playerClass, playerRace, healthPoints, strength, dexterity, intelligence, wisdom, constitution, charisma, weaponsOne, weaponsTwo, weaponsThree, weaponsFour, weaponsFive, weaponsSix, weaponsSeven, weaponsEight, spellOne, spellTwo, spellThree, spellFour, conditionsEffectOne, conditionsEffectTwo, conditionsEffectThree, conditionsEffectFour];
+
 
     // var texttoEnter = arrayForm;
     var texttoEnterJSON = JSON.stringify(arrayForm);
@@ -46,51 +66,59 @@ $("#addplayerSubmit").click(function (event) {
 });
 
 
-    // recall local storage
-    var loadText = function () {
-        texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
-        $("#inbox").html(texttoEnter[4]);
-    };
+// recall local storage
+var loadText = function () {
+    texttoEnter = JSON.parse(localStorage.getItem("addplayerSubmitLocalStorage"));
 
-    
-    
+    // stats list
+    var strengthCard = texttoEnter[4];
+    var dexterityCard = texttoEnter[5];
+    var intelligenceCard = texttoEnter[6];
+    var wisdomCard = texttoEnter[7];
+    var constitutionCard = texttoEnter[8];
+    var charismaCard = texttoEnter[9];
 
+    // $("#stats").html("Strength: " + strengthCard + " + "Dexterity: " + dexterityCard + " Intelligence: " + intelligenceCard + " Wisdom: " + wisdomCard + " Constitution: " + constitutionCard + " Charisma: " + charismaCard);
 
-// });
+    $("#stats").html("Strength: " + strengthCard + "~        &          ~" + "Dexterity: " + dexterityCard + "<br></br>" + " Intelligence: " + intelligenceCard + "<br></br>" + " Wisdom: " + wisdomCard + "<br></br>" + " Constitution: " + constitutionCard + "<br></br>" + " Charisma: " + charismaCard);
 
+    // weapons list
+    var weaponsOneCard = texttoEnter[10];
+    var weaponsTwoCard = texttoEnter[11];
+    var weaponsThreeCard = texttoEnter[12];
+    var weaponsFourCard = texttoEnter[13];
+    var weaponsFiveCard = texttoEnter[14];
+    var weaponsSixCard = texttoEnter[15];
+    var weaponsSevenCard = texttoEnter[16];
+    var weaponsEightCard = texttoEnter[17];
 
+    $("#weapons").html("Weapon I: " + weaponsOneCard + "~        &          ~" + "Weapon II: " + weaponsTwoCard + "<br></br>" + "Weapon III: " + weaponsThreeCard + "~        &          ~" + "Weapon IV: " + weaponsFourCard  + "<br></br>" + "Weapon V: " + "~        &          ~" + weaponsFiveCard + "Weapon VI: " + weaponsSixCard + "<br></br>" + "Weapon VII: " + weaponsSevenCard + "~        &          ~" +  "Weapon VIII: " + weaponsEightCard);
 
-// johns code
+    // spells list
+    var spellOneCard = texttoEnter[18];
+    var spellTwoCard = texttoEnter[19];
+    var spellThreeCard= texttoEnter[20];
+    var spellFourCard = texttoEnter[21];
 
-// var searchEl = document.getElementById('search-button');
-// var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
-// var inputEl = document.getElementById('monster-input');
-// var monsterContainerEl = document.getElementById('monster-container')
+    $("#spells").html("Spell I: " + spellOneCard + "~        &          ~" + "Spell II: " + spellTwoCard + "<br></br>" + "Spell III: " + spellThreeCard + "~        &          ~" + "Spell IV: " + spellFourCard);
 
-// //initialize search for given city name
-// searchEl.addEventListener('click',function() {
-//     var searchTerm = inputEl.value;
-//     getMonster(searchTerm);
-//     searchHistory.push(searchTerm);
-//     localStorage.setItem('monster',JSON.stringify(searchHistory));
-// });
+    //conditions list
+    var conditionsOneCard = texttoEnter[22];
+    var conditionsTwoCard = texttoEnter[23];
+    var conditionsThreeCard = texttoEnter[24];
+    var conditionsFourCard = texttoEnter[25];
 
-// function getMonster(name) {
-//     var queryURL = 'https://www.dnd5eapi.co/api/equipment/equipment_category/weapon';
-//     axios.get(queryURL)
-//     .then (function(response) {
-//         var monsterEl = document.createElement ('ul');
-//         monsterEl.classList = 'card list-item';
-//         monsterEl.setAttribute ('id', 'monster-container');
+    $("#conditions").html("Condition I: " + conditionsOneCard + "~        &          ~" + "Condition II: " + conditionsTwoCard + "<br></br>" + "Condition III: " + conditionsThreeCard + "~        &          ~" + "Condition IV: " + conditionsFourCard);
+};
 
-//         var monsterName = document.createElement('li');
-//         monsterName.innerText = 'Name: ' + response.data.name;
-//         monsterEl.appendChild(monsterName);
+$(document).ready(function () {
+    // hides submit form
+    $("#addplayerSubmit").click(function () {
+        $("PlayerForm").hide();
+    });
+    // shows submit form
+    $("#addPlayerBtn").click(function () {
+        $("PlayerForm").show();
+    });
+});
 
-//         var monsterHP = document.createElement('li');
-//         monsterHP.innerText = 'HP: ' + response.data.hit_points;
-//         monsterEl.appendChild(monsterHP);
-
-//         monsterContainerEl.appendChild(monsterEl);
-//     });
-// }   
