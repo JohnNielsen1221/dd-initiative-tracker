@@ -82,6 +82,12 @@ function getMonster(name) {
             monsterName.innerText = 'Name: ' + response.data.name;
             monsterCardEl.appendChild(monsterName);
 
+            var monsterAttributes = document.createElement('p');
+            monsterAttributes.classList = ('card-title monsterAttributes');
+            monsterAttributes.innerText = 'Attributes: ' + response.data.size + ' ' + response.data.alignment;
+            monsterCardEl.appendChild(monsterAttributes);
+
+
             // var monsterActions = document.createElement('p');
             // monsterActions.classList = ('card-title monsterActions');
             // monsterActions.innerText = 'Actions: ' + response.data.actions;
@@ -132,7 +138,7 @@ function getMonster(name) {
             var monsterSpeed = document.createElement('a');
             monsterSpeed.classList = ('tooltipped btn');
             monsterSpeed.setAttribute('data-position', 'right');
-            monsterSpeed.setAttribute('data-tooltip', ' ' + response.data.speed.walk);
+            monsterSpeed.setAttribute('data-tooltip', 'WALK:' + response.data.speed.walk);
             monsterSpeed.innerText = 'Speed';
             monsterCardEl.appendChild(monsterSpeed);
 
