@@ -20,14 +20,15 @@
                 <div class="row s12 center">
                     <h3 class="playerHeading center">PLAYERS</h3>
 
-                    <button data-target="modal1" class="waves-effect waves-light black white-text modal-trigger" id="startBtn">Add Player</button>
+                    <button data-target="modal1" class="waves-effect waves-light black white-text modal-trigger"
+                        id="startBtn">Add Player</button>
                 </div>
                 <div id="playerCardContainer" class="row s12"></div>
             </div>
 
             <div id="monsterColumn" class="col s4 center">
-                <div class="row s12 center">
-                    <h3 class='monsterHeading'>MONSTERS</h3>
+                <div class="row s12 center" draggable="true">
+                    <h3 class='monsterHeading' >MONSTERS</h3>
                     <input id="monster-input" type="text" class="form-control center" placeholder="Enter Monster Name"
                         aria-label="Enter Monster Name">
                     <div class="input-group-append center">
@@ -38,9 +39,11 @@
                     </input>
                 </div>
             </div>
-            <div id="battleColumn" class="col s4 target center">
+            <div  class="col s4 target center"><!-- please add to master rex 6-20-2020 9:20PM-->
                 <div class="row s12">
                     <h3 class='battleHeading'>BATTLE</h3>
+                    <div id="battleColumn">Drop Here to Prepare for Battle</div>    <!-- please add to master rex 6-20-2020 9:20PM-->
+
                 </div>
             </div>
         </div>
@@ -240,8 +243,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
     <script src="./assets/js/getMonster.js"></script>
