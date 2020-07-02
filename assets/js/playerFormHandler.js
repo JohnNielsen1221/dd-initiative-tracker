@@ -260,3 +260,51 @@ if (!persistencyData) {
     persistencyData = [];
 }
 getOldMonster(persistencyData);
+
+// autocomplete for monsters
+const getMonsters = () => {
+    // api call for a list of monsters and format it a list of monster names
+    fetch('https://www.dnd5eapi.co/api/monsters/')
+        .then(response => response.json())
+        .then(list => list.results)
+        .then(results => results.map(monster => monster.name))
+        .then(monsterList => {
+            // put that list in an autocomplete copied from https://tarekraafat.github.io/autoComplete.js/#/
+            $(document).ready(function () {
+                var db = monsterList;
+                function popupClearAndHide() {
+                    autocomplete_result.innerHTML = "";
+                    autocomplete_result.style.display = "none";
+                }
+
+                function updPopup() {
+                    if (!autocomplete.value) {
+                        popupClearAndHide();
+                        return;
+                    }
+                    var a = new RegExp("^" + autocomplete.value, "i");
+                    for (var x = 0, b = document.createDocumentFragment(), c = false; x < db.length; x++) {
+                        if (a.test(db[x])) {
+                            c = true;
+                            var d = document.createElement("p");
+                            d.innerText = db[x];
+                            d.setAttribute("onclick", "autocomplete.value=this.innerText;autocomplete_result.innerHTML='';autocomplete_result.style.display='none';");
+                            b.appendChild(d);
+                        }
+                    }
+                    if (c == true) {
+                        autocomplete_result.innerHTML = "";
+                        autocomplete_result.style.display = "block";
+                        autocomplete_result.appendChild(b);
+                        return;
+                    }
+                    popupClearAndHide();
+                }
+
+                autocomplete.addEventListener("keyup", updPopup);
+                autocomplete.addEventListener("change", updPopup);
+                autocomplete.addEventListener("focus", updPopup);
+            })
+        })
+}
+getMonsters();
