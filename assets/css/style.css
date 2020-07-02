@@ -23,6 +23,7 @@
     --light-blue: #87CEFA;
     --dark-blue: #01008C;
 }
+
 .nav-wrapper {
     background-color: var(--clear);
     font-weight: bold;
@@ -71,10 +72,6 @@ button {
     margin: 50px 33%;
     box-shadow: inset 0 0 10px gold, 0 0 50px darkorange, inset 0 0 75px red;
     padding: none;
-}
-
-#monster-input {
-    box-shadow: inset 0 0 10px gold, 0 0 10px darkorange, inset 0 0 15px red;
 }
 
 .player-card {
@@ -127,15 +124,16 @@ input {
     font-weight: bold;
     font-size: 4rem;
 }
-  
-  #autocomplete {
+
+#autocomplete {
+    box-shadow: inset 0 0 10px gold, 0 0 10px darkorange, inset 0 0 15px red;
     border: 1px solid silver;
     outline: none;
     margin: 0;
     background: #fff;
-  }
-  
-  #autocomplete_result {
+}
+
+#autocomplete_result {
     border: 1px solid silver;
     border-top: 0;
     position: absolute;
@@ -143,23 +141,25 @@ input {
     max-height: 93px;
     background: #fff;
     z-index: 1000;
-  }
-  
-  #autocomplete, #autocomplete_result {
+}
+
+#autocomplete,
+#autocomplete_result {
     width: 200px;
     box-sizing: border-box;
-  }
-  
-  #autocomplete, #autocomplete_result p {
+}
+
+#autocomplete,
+#autocomplete_result p {
     padding: 4px;
     margin: 0;
     color: #000;
-  }
-  
-  #autocomplete_result p:nth-child(2n+1) {
+}
+
+#autocomplete_result p:nth-child(2n+1) {
     background: #f6f6f6;
-  }
-  
-  #autocomplete_result p:hover {
+}
+
+#autocomplete_result p:hover {
     background: #e5e5e5;
-  }
+}
