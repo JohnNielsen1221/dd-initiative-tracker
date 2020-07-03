@@ -163,3 +163,19 @@ input {
 #autocomplete_result p:hover {
     background: #e5e5e5;
 }
+
+#monster-modal {
+    background: darkred;
+    box-shadow: inset 0 0 50px gold, 0 0 100px darkorange, inset 0 0 75px red;
+    padding: none;
+    border-radius: -10px;
+    text-shadow: 0 0 5px white, 0 0 10px darkorange, 0 0 15px red;
+    ;
+
+}
+
+#sorry-button {
+    display: block;
+    margin: 0 auto;
+}
+

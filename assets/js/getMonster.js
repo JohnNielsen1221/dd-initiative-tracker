@@ -2,6 +2,7 @@ var searchEl = document.getElementById('search-button');
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('autocomplete');
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
+var sorryButtonEl = document.getElementById('sorry-button');
 searchEl.addEventListener('click', function () {
     var searchTerm = inputEl.value.toLowerCase();
     getMonster(searchTerm);
@@ -9,10 +10,17 @@ searchEl.addEventListener('click', function () {
     localStorage.setItem('monster', JSON.stringify(searchHistory));
 });
 
+sorryButtonEl.addEventListener('click', function() {
+    $(searchEl).removeClass('modal-trigger');
+})
+
 function getMonster(name) {
+    if (name.length<1) {
+        $(searchEl).addClass('modal-trigger');
+        // searchEl.setAttribute('data-target', 'monster-modal');
+    } else {
     axios.get(queryURL + name)
         .then(function (response) {
-
             persistencyData = JSON.parse(localStorage.getItem("persistencyData"));
             if (!persistencyData) {
                 persistencyData = [];
@@ -120,6 +128,5 @@ function getMonster(name) {
                 }
             })
         });
+    }    
 }
-
-

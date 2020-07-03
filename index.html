@@ -30,7 +30,7 @@
                     <input class='transparent' id="autocomplete" type="text" />
                     <div id="autocomplete_result" style="display: none;"></div>
                     <div class="input-group-append center">
-                        <button class="center waves-effect black white-text" type="button" id="search-button">
+                        <button class="center waves-effect black white-text" type="button" id="search-button" data-target='monster-modal' >
                             Add Monster
                         </button>
                     </div>
@@ -185,6 +185,17 @@
                     <a id="addplayerSubmit" class="modal-close waves-effect waves-light btn black">submit</a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class='modal' id='monster-modal'>
+        <div class='modal-content center-align'>
+            <h4>THE OVERLORD DOES NOT HAVE TIME TO READ YOUR MIND!</h4>
+            <p>(But he could if he so desired.)<p>
+            <p>Enter the name of the monster you wish to summon</p>
+            <p> AND APOLOGIZE!</p>
+        </div>
+        <div class='modal-footer transparent'>
+            <button href='#!' class='modal-close black white-text' id='sorry-button'> I'm sorry</button>
         </div>
     </div>
     <div class="row name-box">
