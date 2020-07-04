@@ -70,14 +70,12 @@ function getMonster(name) {
                 monsterHpInput.setAttribute('placeholder', 'HP: ' + monsterData.monsterHP);
                 monsterCardEl.appendChild(monsterHpInput);
 
-                var monsterHP = document.createElement('a');
-                monsterHP.classList = ('tooltipped btn');
-                monsterHP.setAttribute('data-position', 'right');
-                monsterHP.setAttribute('data-tooltip', monsterData.monsterHP);
-                monsterHP.innerText = 'HP';
+                var monsterHP = document.createElement('button');
+                monsterHP.classList = ('collapsible');
+                monsterHP.innerHTML = (`<li><div class="collapsible-header transparent">HP</div><div class="collapsible-body"><span>${monsterData.monsterHP}</span></div></li>`)
                 monsterCardEl.appendChild(monsterHP);
 
-                M.Tooltip.init(monsterHP);
+                M.Collapsible.init(monsterHP);
 
                 var monsterStats = document.createElement('a');
                 monsterStats.classList = ('tooltipped btn');
