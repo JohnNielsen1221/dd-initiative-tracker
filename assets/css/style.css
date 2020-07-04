@@ -164,7 +164,7 @@ input {
     background: #e5e5e5;
 }
 
-#monster-modal {
+#monster-modal, #non-monster-modal {
     background: darkred;
     box-shadow: inset 0 0 50px gold, 0 0 100px darkorange, inset 0 0 75px red;
     padding: none;
