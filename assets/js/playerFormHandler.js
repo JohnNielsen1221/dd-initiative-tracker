@@ -212,14 +212,22 @@ var getOldMonster = function (persistencyData) {
             monsterHpInput.setAttribute('placeholder', 'HP: ' + monster.monsterHP);
             monsterCardEl.appendChild(monsterHpInput);
 
-            var monsterHP = document.createElement('a');
-            monsterHP.classList = ('tooltipped btn');
-            monsterHP.setAttribute('data-position', 'right');
-            monsterHP.setAttribute('data-tooltip', monster.monsterHP);
-            monsterHP.innerText = 'HP';
+            var monsterHP = document.createElement('button');
+            monsterHP.classList = ('collapsible');
+            monsterHP.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>HP</span></div><div class="collapsible-body"><span>${monster.monsterHP}</span></div></li>`)
             monsterCardEl.appendChild(monsterHP);
 
-            M.Tooltip.init(monsterHP);
+            M.Collapsible.init(monsterHP);
+
+
+            // var monsterHP = document.createElement('a');
+            // monsterHP.classList = ('tooltipped btn');
+            // monsterHP.setAttribute('data-position', 'right');
+            // monsterHP.setAttribute('data-tooltip', monster.monsterHP);
+            // monsterHP.innerText = 'HP';
+            // monsterCardEl.appendChild(monsterHP);
+
+            // M.Tooltip.init(monsterHP);
 
             var monsterStats = document.createElement('a');
             monsterStats.classList = ('tooltipped btn');

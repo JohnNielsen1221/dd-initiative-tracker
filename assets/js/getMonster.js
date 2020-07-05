@@ -72,19 +72,26 @@ function getMonster(name) {
 
                 var monsterHP = document.createElement('button');
                 monsterHP.classList = ('collapsible');
-                monsterHP.innerHTML = (`<li><div class="collapsible-header transparent">HP</div><div class="collapsible-body"><span>${monsterData.monsterHP}</span></div></li>`)
+                monsterHP.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>HP</span></div><div class="collapsible-body"><span>${monsterData.monsterHP}</span></div></li>`)
                 monsterCardEl.appendChild(monsterHP);
 
                 M.Collapsible.init(monsterHP);
 
-                var monsterStats = document.createElement('a');
-                monsterStats.classList = ('tooltipped btn');
-                monsterStats.setAttribute('data-position', 'right');
-                monsterStats.setAttribute('data-tooltip', monsterData.monsterStats);
-                monsterStats.innerText = 'STATS';
+                var monsterStats = document.createElement('button');
+                monsterStats.classList = ('collapsible');
+                monsterStats.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>STATS</span></div><div class="collapsible-body"><span>${monsterData.monsterStats}</span></div></li>`)
                 monsterCardEl.appendChild(monsterStats);
 
-                M.Tooltip.init(monsterStats);
+                M.Collapsible.init(monsterStats);
+                
+                // var monsterStats = document.createElement('a');
+                // monsterStats.classList = ('tooltipped btn');
+                // monsterStats.setAttribute('data-position', 'right');
+                // monsterStats.setAttribute('data-tooltip', monsterData.monsterStats);
+                // monsterStats.innerText = 'STATS';
+                // monsterCardEl.appendChild(monsterStats);
+
+                // M.Tooltip.init(monsterStats);
 
                 var monsterArmorClass = document.createElement('a');
                 monsterArmorClass.classList = ('tooltipped btn');

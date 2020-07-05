@@ -179,3 +179,9 @@ input {
     margin: 0 auto;
 }
 
+.collapsible-header {
+    justify-content: center !important;
+    margin: 0 auto !important;
+    padding: .2rem;
+}
+
