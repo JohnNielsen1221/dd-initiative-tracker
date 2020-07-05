@@ -33,7 +33,13 @@ function getMonster(name) {
                     "monsterName": response.data.name,
                     "monsterAttributes": response.data.size + ', ' + response.data.alignment,
                     "monsterHP": response.data.hit_points,
-                    "monsterStats": 'STR: ' + response.data.strength + ' | ' + 'DEX: ' + response.data.dexterity + ' | ' + 'INT: ' + response.data.intelligence + ' | ' + 'WIS: ' + response.data.wisdom + ' | ' + 'CON: ' + response.data.constitution + ' | ' + 'CHA: ' + response.data.charisma,
+                    // "monsterStats": 'STR: ' + response.data.strength + '\nDEX: ' + response.data.dexterity + '\nINT: ' + response.data.intelligence + '\nWIS: ' + response.data.wisdom + '\nCON: ' + response.data.constitution + '\nCHA: ' + response.data.charisma,
+                    "monsterStrength": response.data.strength,
+                    "monsterDex": response.data.dexterity,
+                    "monsterInt": response.data.intelligence,
+                    "monsterWis": response.data.wisdom,
+                    "monsterCon": response.data.constitution,
+                    "monsterCha": response.data.constitution,
                     "monsterArmorClass": response.data.armor_class,
                     "monsterSpeed": response.data.speed.walk,
                     "isPlayer": false
@@ -79,37 +85,24 @@ function getMonster(name) {
 
                 var monsterStats = document.createElement('button');
                 monsterStats.classList = ('collapsible');
-                monsterStats.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>STATS</span></div><div class="collapsible-body"><span>${monsterData.monsterStats}</span></div></li>`)
+                monsterStats.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>STATS</span></div><div class="collapsible-body"><span>STR: ${+ monsterData.monsterStrength} <br/> DEX: ${+ monsterData.monsterDex} <br/> INT: ${+ monsterData.monsterInt} <br/> WIS: ${+ monsterData.monsterWis} <br/> CON: ${+ monsterData.monsterCon} <br/> CHA: ${+ monsterData.monsterCha}</span></div></li>`)
                 monsterCardEl.appendChild(monsterStats);
 
                 M.Collapsible.init(monsterStats);
                 
-                // var monsterStats = document.createElement('a');
-                // monsterStats.classList = ('tooltipped btn');
-                // monsterStats.setAttribute('data-position', 'right');
-                // monsterStats.setAttribute('data-tooltip', monsterData.monsterStats);
-                // monsterStats.innerText = 'STATS';
-                // monsterCardEl.appendChild(monsterStats);
-
-                // M.Tooltip.init(monsterStats);
-
-                var monsterArmorClass = document.createElement('a');
-                monsterArmorClass.classList = ('tooltipped btn');
-                monsterArmorClass.setAttribute('data-position', 'right');
-                monsterArmorClass.setAttribute('data-tooltip', monsterData.monsterArmorClass);
-                monsterArmorClass.innerText = 'Armor';
+                var monsterArmorClass = document.createElement('button');
+                monsterArmorClass.classList = ('collapsible');
+                monsterArmorClass.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>Armor</span></div><div class="collapsible-body"><span>${monsterData.monsterArmorClass}</span></div></li>`)
                 monsterCardEl.appendChild(monsterArmorClass);
 
-                M.Tooltip.init(monsterArmorClass);
+                M.Collapsible.init(monsterArmorClass);
 
-                var monsterSpeed = document.createElement('a');
-                monsterSpeed.classList = ('tooltipped btn');
-                monsterSpeed.setAttribute('data-position', 'right');
-                monsterSpeed.setAttribute('data-tooltip', monsterData.monsterSpeed);
-                monsterSpeed.innerText = 'Speed';
+                var monsterSpeed = document.createElement('button');
+                monsterSpeed.classList = ('collapsible');
+                monsterSpeed.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>Speed</span></div><div class="collapsible-body"><span>${monsterData.monsterArmorClass}</span></div></li>`)
                 monsterCardEl.appendChild(monsterSpeed);
 
-                M.Tooltip.init(monsterSpeed);
+                M.Collapsible.init(monsterSpeed);
 
                 $("<button>").addClass("btn battleBtn").text("Battle!").appendTo(monsterCardEl);
 

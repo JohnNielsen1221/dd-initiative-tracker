@@ -219,42 +219,26 @@ var getOldMonster = function (persistencyData) {
 
             M.Collapsible.init(monsterHP);
 
-
-            // var monsterHP = document.createElement('a');
-            // monsterHP.classList = ('tooltipped btn');
-            // monsterHP.setAttribute('data-position', 'right');
-            // monsterHP.setAttribute('data-tooltip', monster.monsterHP);
-            // monsterHP.innerText = 'HP';
-            // monsterCardEl.appendChild(monsterHP);
-
-            // M.Tooltip.init(monsterHP);
-
-            var monsterStats = document.createElement('a');
-            monsterStats.classList = ('tooltipped btn');
-            monsterStats.setAttribute('data-position', 'right');
-            monsterStats.setAttribute('data-tooltip', monster.monsterStats);
-            monsterStats.innerText = 'STATS';
+            var monsterStats = document.createElement('button');
+            monsterStats.classList = ('collapsible');
+            monsterStats.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>STATS</span></div><div class="collapsible-body"><span>STR: ${+ monster.monsterStrength} <br/> DEX: ${+ monster.monsterDex} <br/> INT: ${+ monster.monsterInt} <br/> WIS: ${+ monster.monsterWis} <br/> CON: ${+ monster.monsterCon} <br/> CHA: ${+ monster.monsterCha}</span></div></li>`)
             monsterCardEl.appendChild(monsterStats);
 
-            M.Tooltip.init(monsterStats);
+            M.Collapsible.init(monsterStats);
 
-            var monsterArmorClass = document.createElement('a');
-            monsterArmorClass.classList = ('tooltipped btn');
-            monsterArmorClass.setAttribute('data-position', 'right');
-            monsterArmorClass.setAttribute('data-tooltip', monster.monsterArmorClass);
-            monsterArmorClass.innerText = 'Armor';
+            var monsterArmorClass = document.createElement('button');
+            monsterArmorClass.classList = ('collapsible');
+            monsterArmorClass.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>Armor</span></div><div class="collapsible-body"><span>${monster.monsterArmorClass}</span></div></li>`)
             monsterCardEl.appendChild(monsterArmorClass);
 
-            M.Tooltip.init(monsterArmorClass);
+            M.Collapsible.init(monsterArmorClass);
 
-            var monsterSpeed = document.createElement('a');
-            monsterSpeed.classList = ('tooltipped btn');
-            monsterSpeed.setAttribute('data-position', 'right');
-            monsterSpeed.setAttribute('data-tooltip', monster.monsterSpeed);
-            monsterSpeed.innerText = 'Speed';
+            var monsterSpeed = document.createElement('button');
+            monsterSpeed.classList = ('collapsible');
+            monsterSpeed.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>Speed</span></div><div class="collapsible-body"><span>${monster.monsterArmorClass}</span></div></li>`)
             monsterCardEl.appendChild(monsterSpeed);
 
-            M.Tooltip.init(monsterSpeed);
+            M.Collapsible.init(monsterSpeed);
 
             $("<button>").addClass("btn battleBtn").text("Battle!").appendTo(monsterCardEl);
 

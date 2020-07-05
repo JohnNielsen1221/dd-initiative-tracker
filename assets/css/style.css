@@ -89,9 +89,9 @@ button {
     padding: 0 !important;
 }
 
-.monster-card .collapsible {
+.monster-card .collapsible, .monster-card .btn {
     margin: 15px 15px auto;
-    /* background: white; */
+    background: white;
     box-shadow: 0 0 20px 0px white, inset 0 0 20px 0px black;
     color: black;
     width: 35%;
@@ -182,6 +182,10 @@ input {
 .collapsible-header {
     justify-content: center !important;
     margin: 0 auto !important;
+    padding: .2rem;
+}
+
+.collapsible-body {
     padding: .2rem;
 }
 
