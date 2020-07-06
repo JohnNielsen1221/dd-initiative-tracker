@@ -25,11 +25,11 @@ var createPlayerCard = function (playerData) {
         var cardRaceClass = $("<p>").text(`${playerData.playerRace} ${playerData.playerClass}`);
         var cardHpInput = $('<input>').addClass('center').attr('placeholder', 'HP: ' + playerData.healthPoints);
         var cardAction = $("<div>").addClass("card-action");
-        var cardHealthPoints = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", playerData.healthPoints).text("HP");
-        var cardSpellButton = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", `${playerData.spellOne}, ${playerData.spellTwo}, ${playerData.spellThree}, ${playerData.spellFour}`).text("Spells");
-        var cardStatsButton = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", `${playerData.strength}, ${playerData.dexterity}, ${playerData.intelligence}, ${playerData.wisdom}, ${playerData.constitution}, ${playerData.charisma}`).text("Stats");
-        var cardWeapon = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", playerData.weapon).text("Weapon");
-        var cardStatusEffect = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", playerData.statusEffect).text("Status");
+        var cardHealthPoints = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>HP</span></div><div class="collapsible-body"><span>${playerData.healthPoints}</span></div></li>`);
+        var cardSpellButton = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>Spells</span></div><div class="collapsible-body"><span>${playerData.spellOne}, ${playerData.spellTwo}, ${playerData.spellThree}, ${playerData.spellFour}</span></div></li>`);
+        var cardStatsButton = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>STATS</span></div><div class="collapsible-body"><span>STR: ${playerData.strength} <br/> DEX: ${playerData.dexterity} <br/> INT: ${playerData.intelligence} <br/> WIS: ${playerData.wisdom} <br/> CON: ${playerData.constitution} <br/> CHA: ${playerData.charisma}</span></div></li>`);
+        var cardWeapon = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>WEAPON</span></div><div class="collapsible-body"><span>${playerData.weapon}</span></div></li>`);
+        var cardStatusEffect = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>STATUS</span></div><div class="collapsible-body"><span>${playerData.statusEffect}</span></div></li>`);
 
         cardAction.append(cardHealthPoints, cardSpellButton, cardStatsButton, cardWeapon, cardStatusEffect);
         cardContentEl.append(cardTitle, cardRaceClass, cardHpInput, cardAction);
@@ -72,6 +72,7 @@ var createOldPlayerCard = function () {
             createPlayerCard(playerData);
         }
     })
+    M.AutoInit();
 }
 
 var createNewPlayerCard = function () {
@@ -117,6 +118,9 @@ var createNewPlayerCard = function () {
     persistencyData.push(playerData);
 
     localStorage.setItem("persistencyData", JSON.stringify(persistencyData));
+
+    M.Collapsible.init(createNewPlayerCard);
+
 }
 
 var playerFormHandler = function (event) {
@@ -128,6 +132,10 @@ var playerFormHandler = function (event) {
     $(document).ready(function () {
         $('.tooltipped').tooltip();
     });
+
+    $(document).ready(function () {
+        $('.collapsible').collapsible();
+    })
 
     $(document).ready(function () {
         $('.modal').modal();
