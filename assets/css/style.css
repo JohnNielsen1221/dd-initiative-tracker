@@ -205,3 +205,6 @@ input {
     padding: .2rem;
 }
 
+@media screen and (min-width: 30em) {
+    
+}
