@@ -98,6 +98,7 @@ button {
 }
 .monster-card .btn {
     margin: 0 auto;
+    margin-top: 1rem;
     background: white;
     box-shadow: 0 0 20px 0px white, inset 0 0 20px 0px black;
     color: black;
@@ -115,6 +116,7 @@ button {
 }
 .player-card .btn {
     margin: 0 auto;
+    margin-top: 1rem;
     background: darkred;
     box-shadow: 0 0 20px 0px black, inset 0 0 20px 0px white;
     color: white;
@@ -205,3 +207,18 @@ input {
     padding: .2rem;
 }
 
+.card-action {
+    padding: 0 !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    [class='collapsible'] {width: 75% !important;}
+}
+
+@media only screen and (max-width: 768px) {
+    [class='collapsible'] {width: 75% !important;}
+}
+
+@media only screen and (max-width: 480px) {
+    [class='collapsible'] {width: 35% !important;}
+}
