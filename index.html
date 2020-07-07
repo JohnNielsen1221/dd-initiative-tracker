@@ -16,7 +16,7 @@
     </header>
     <div class='container' id="container">
         <div class="row">
-            <div class='col s4 center' id="playerColumn">
+            <div class='col s12 m4 center' id="playerColumn">
                 <div class="row s12 center">
                     <h3 class="playerHeading center">PLAYERS</h3>
 
@@ -24,20 +24,20 @@
                         id="startBtn">Add Player</button>
                 </div>
             </div>
-            <div id="monsterColumn" class="col s4 center">
+            <div id="monsterColumn" class="col s12 m4 center">
                 <div class="row s12 center">
                     <h3 class='monsterHeading'>MONSTERS</h3>
-                    <input id="autocomplete" type="text" />
+                    <input class='transparent white-text' id="autocomplete" type="text" />
                     <div id="autocomplete_result" style="display: none;"></div>
                     <div class="input-group-append center">
-                        <button class="center waves-effect black white-text" type="button" id="search-button">
+                        <button class="center waves-effect black white-text" type="button" id="search-button" data-target='monster-modal' >
                             Add Monster
                         </button>
                     </div>
                     </input>
                 </div>
             </div>
-            <div id="battleColumn" class="col s4 target center">
+            <div id="battleColumn" class="col s12 m4 target center">
                 <div class="row s12 center">
                     <h3 class='battleHeading'>BATTLE</h3>
                 </div>
@@ -46,7 +46,7 @@
     </div>
     <div id="modal1" class="modal">
         <div class="modal-content">
-            <div class="row s12 m12 card blue-grey darken-1">
+            <div class="row s12 card blue-grey darken-1">
                 <div class="card-content white-text">
                     <span class="card-title center">
                         <h5>Player Form Setup</h5>
@@ -187,20 +187,46 @@
             </div>
         </div>
     </div>
-    <div class="row name-box">
-        <div class="col s12 inner-name-box">
-            <div class="card transparent darken-1">
-                <div class="card-content white-text">
-                    <span class="card-title center">Generate Monster Names</span>
-                    <p class='center'>(Please be patient while the Overlord names your monster)</p>
-                    <p class='center' id="random-name"></p>
-                </div>
-                <div class="card-action center">
-                    <button class='white' id="generate">Generate a Name</button>
+    <div class='modal' id='monster-modal'>
+        <div class='modal-content center-align'>
+            <h4>THE OVERLORD DOES NOT HAVE TIME TO READ YOUR MIND!</h4>
+            <p>(But he could if he so desired.)<p>
+            <p>Enter the name of the monster you wish to summon</p>
+            <p> AND APOLOGIZE!</p>
+        </div>
+        <div class='modal-footer transparent'>
+            <button href='#!' class='modal-close black white-text' id='sorry-button'> I'm sorry</button>
+        </div>
+    </div>
+    <div class='modal' id='non-monster-modal'>
+        <div class='modal-content center-align'>
+            <h4>ONLY THE OVERLORD CAN CREATE MONSTERS!</h4>
+            <p>Your made-up monster name is not permitted.<p>
+            <p>Enter a REAL name of a monster you wish to summon</p>
+            <p> AND APOLOGIZE FOR YOUR INSOLENCE!</p>
+        </div>
+        <div class='modal-footer transparent'>
+            <button href='#!' class='modal-close black white-text' id='sorry-button'> I'm so sorry</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row name-box ">
+            <div class="col s12 inner-name-box">
+                <div class="card transparent darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title center">Generate Monster Names</span>
+                        <p class='center'>(Please be patient while the Overlord names your monster)</p>
+                        <p class='center' id="random-name"></p>
+                    </div>
+                    <div class="card-action center">
+                        <button class='white' id="generate">Generate a Name</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">

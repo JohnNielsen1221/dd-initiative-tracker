@@ -25,11 +25,11 @@ var createPlayerCard = function (playerData) {
         var cardRaceClass = $("<p>").text(`${playerData.playerRace} ${playerData.playerClass}`);
         var cardHpInput = $('<input>').addClass('center').attr('placeholder', 'HP: ' + playerData.healthPoints);
         var cardAction = $("<div>").addClass("card-action");
-        var cardHealthPoints = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", playerData.healthPoints).text("HP");
-        var cardSpellButton = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", `${playerData.spellOne}, ${playerData.spellTwo}, ${playerData.spellThree}, ${playerData.spellFour}`).text("Spells");
-        var cardStatsButton = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", `${playerData.strength}, ${playerData.dexterity}, ${playerData.intelligence}, ${playerData.wisdom}, ${playerData.constitution}, ${playerData.charisma}`).text("Stats");
-        var cardWeapon = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", playerData.weapon).text("Weapon");
-        var cardStatusEffect = $("<a>").addClass("btn tooltipped").attr("data-position", "bottom").attr("data-tooltip", playerData.statusEffect).text("Status");
+        var cardHealthPoints = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>HP</span></div><div class="collapsible-body"><span>${playerData.healthPoints}</span></div></li>`);
+        var cardSpellButton = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>Spells</span></div><div class="collapsible-body"><span>${playerData.spellOne}, ${playerData.spellTwo}, ${playerData.spellThree}, ${playerData.spellFour}</span></div></li>`);
+        var cardStatsButton = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>STATS</span></div><div class="collapsible-body"><span>STR: ${playerData.strength} <br/> DEX: ${playerData.dexterity} <br/> INT: ${playerData.intelligence} <br/> WIS: ${playerData.wisdom} <br/> CON: ${playerData.constitution} <br/> CHA: ${playerData.charisma}</span></div></li>`);
+        var cardWeapon = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>WEAPON</span></div><div class="collapsible-body"><span>${playerData.weapon}</span></div></li>`);
+        var cardStatusEffect = $("<button>").addClass("collapsible").html(`<li><div class="collapsible-header transparent text-center"><span>STATUS</span></div><div class="collapsible-body"><span>${playerData.statusEffect}</span></div></li>`);
 
         cardAction.append(cardHealthPoints, cardSpellButton, cardStatsButton, cardWeapon, cardStatusEffect);
         cardContentEl.append(cardTitle, cardRaceClass, cardHpInput, cardAction);
@@ -72,6 +72,7 @@ var createOldPlayerCard = function () {
             createPlayerCard(playerData);
         }
     })
+    M.AutoInit();
 }
 
 var createNewPlayerCard = function () {
@@ -117,6 +118,9 @@ var createNewPlayerCard = function () {
     persistencyData.push(playerData);
 
     localStorage.setItem("persistencyData", JSON.stringify(persistencyData));
+
+    M.Collapsible.init(createNewPlayerCard);
+
 }
 
 var playerFormHandler = function (event) {
@@ -128,6 +132,10 @@ var playerFormHandler = function (event) {
     $(document).ready(function () {
         $('.tooltipped').tooltip();
     });
+
+    $(document).ready(function () {
+        $('.collapsible').collapsible();
+    })
 
     $(document).ready(function () {
         $('.modal').modal();
@@ -212,41 +220,33 @@ var getOldMonster = function (persistencyData) {
             monsterHpInput.setAttribute('placeholder', 'HP: ' + monster.monsterHP);
             monsterCardEl.appendChild(monsterHpInput);
 
-            var monsterHP = document.createElement('a');
-            monsterHP.classList = ('tooltipped btn');
-            monsterHP.setAttribute('data-position', 'right');
-            monsterHP.setAttribute('data-tooltip', monster.monsterHP);
-            monsterHP.innerText = 'HP';
+            var monsterHP = document.createElement('button');
+            monsterHP.classList = ('collapsible');
+            monsterHP.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>HP</span></div><div class="collapsible-body"><span>${monster.monsterHP}</span></div></li>`)
             monsterCardEl.appendChild(monsterHP);
 
-            M.Tooltip.init(monsterHP);
+            M.Collapsible.init(monsterHP);
 
-            var monsterStats = document.createElement('a');
-            monsterStats.classList = ('tooltipped btn');
-            monsterStats.setAttribute('data-position', 'right');
-            monsterStats.setAttribute('data-tooltip', monster.monsterStats);
-            monsterStats.innerText = 'STATS';
+            var monsterStats = document.createElement('button');
+            monsterStats.classList = ('collapsible');
+            monsterStats.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>STATS</span></div><div class="collapsible-body"><span>STR: ${+ monster.monsterStrength} <br/> DEX: ${+ monster.monsterDex} <br/> INT: ${+ monster.monsterInt} <br/> WIS: ${+ monster.monsterWis} <br/> CON: ${+ monster.monsterCon} <br/> CHA: ${+ monster.monsterCha}</span></div></li>`)
             monsterCardEl.appendChild(monsterStats);
 
-            M.Tooltip.init(monsterStats);
+            M.Collapsible.init(monsterStats);
 
-            var monsterArmorClass = document.createElement('a');
-            monsterArmorClass.classList = ('tooltipped btn');
-            monsterArmorClass.setAttribute('data-position', 'right');
-            monsterArmorClass.setAttribute('data-tooltip', monster.monsterArmorClass);
-            monsterArmorClass.innerText = 'Armor';
+            var monsterArmorClass = document.createElement('button');
+            monsterArmorClass.classList = ('collapsible');
+            monsterArmorClass.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>Armor</span></div><div class="collapsible-body"><span>${monster.monsterArmorClass}</span></div></li>`)
             monsterCardEl.appendChild(monsterArmorClass);
 
-            M.Tooltip.init(monsterArmorClass);
+            M.Collapsible.init(monsterArmorClass);
 
-            var monsterSpeed = document.createElement('a');
-            monsterSpeed.classList = ('tooltipped btn');
-            monsterSpeed.setAttribute('data-position', 'right');
-            monsterSpeed.setAttribute('data-tooltip', monster.monsterSpeed);
-            monsterSpeed.innerText = 'Speed';
+            var monsterSpeed = document.createElement('button');
+            monsterSpeed.classList = ('collapsible');
+            monsterSpeed.innerHTML = (`<li><div class="collapsible-header transparent text-center"><span>Speed</span></div><div class="collapsible-body"><span>${monster.monsterArmorClass}</span></div></li>`)
             monsterCardEl.appendChild(monsterSpeed);
 
-            M.Tooltip.init(monsterSpeed);
+            M.Collapsible.init(monsterSpeed);
 
             $("<button>").addClass("btn battleBtn").text("Battle!").appendTo(monsterCardEl);
 

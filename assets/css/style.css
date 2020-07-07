@@ -23,6 +23,7 @@
     --light-blue: #87CEFA;
     --dark-blue: #01008C;
 }
+
 .nav-wrapper {
     background-color: var(--clear);
     font-weight: bold;
@@ -68,13 +69,9 @@ button {
 }
 
 .name-box {
-    margin: 50px 33%;
+    /* margin: 50px 33%;*/
     box-shadow: inset 0 0 10px gold, 0 0 50px darkorange, inset 0 0 75px red;
     padding: none;
-}
-
-#monster-input {
-    box-shadow: inset 0 0 10px gold, 0 0 10px darkorange, inset 0 0 15px red;
 }
 
 .player-card {
@@ -92,21 +89,39 @@ button {
     padding: 0 !important;
 }
 
-.monster-card .btn {
+.monster-card .collapsible {
     margin: 15px 15px auto;
     background: white;
     box-shadow: 0 0 20px 0px white, inset 0 0 20px 0px black;
     color: black;
     width: 35%;
 }
+.monster-card .btn {
+    margin: 0 auto;
+    margin-top: 1rem;
+    background: white;
+    box-shadow: 0 0 20px 0px white, inset 0 0 20px 0px black;
+    color: black;
+    width: 100%;
+    padding: 0;
+}
 
-.player-card .btn {
+.player-card .collapsible {
     margin: 15px 15px auto;
     background: darkred;
     box-shadow: 0 0 20px 0px black, inset 0 0 20px 0px white;
     color: white;
     width: 35%;
 
+}
+.player-card .btn {
+    margin: 0 auto;
+    margin-top: 1rem;
+    background: darkred;
+    box-shadow: 0 0 20px 0px black, inset 0 0 20px 0px white;
+    color: white;
+    width: 100%;
+    padding: 0;
 }
 
 input {
@@ -128,42 +143,82 @@ input {
     font-size: 4rem;
 }
 
-* {
-    font-family: Segoe UI;
-    font-size: 12px;
-  }
-  
-  #autocomplete {
+#autocomplete {
+    box-shadow: inset 0 0 10px gold, 0 0 10px darkorange, inset 0 0 15px red;
     border: 1px solid silver;
     outline: none;
     margin: 0;
     background: #fff;
-  }
-  
-  #autocomplete_result {
+}
+
+#autocomplete_result {
     border: 1px solid silver;
     border-top: 0;
     position: absolute;
     overflow: auto;
     max-height: 93px;
     background: #fff;
-  }
-  
-  #autocomplete, #autocomplete_result {
+    z-index: 1000;
+}
+
+#autocomplete,
+#autocomplete_result {
     width: 200px;
     box-sizing: border-box;
-  }
-  
-  #autocomplete, #autocomplete_result p {
+}
+
+#autocomplete,
+#autocomplete_result p {
     padding: 4px;
     margin: 0;
     color: #000;
-  }
-  
-  #autocomplete_result p:nth-child(2n+1) {
+}
+
+#autocomplete_result p:nth-child(2n+1) {
     background: #f6f6f6;
-  }
-  
-  #autocomplete_result p:hover {
+}
+
+#autocomplete_result p:hover {
     background: #e5e5e5;
-  }
+}
+
+#monster-modal, #non-monster-modal {
+    background: darkred;
+    box-shadow: inset 0 0 50px gold, 0 0 100px darkorange, inset 0 0 75px red;
+    padding: none;
+    border-radius: -10px;
+    text-shadow: 0 0 5px white, 0 0 10px darkorange, 0 0 15px red;
+    ;
+
+}
+
+#sorry-button {
+    display: block;
+    margin: 0 auto;
+}
+
+.collapsible-header {
+    justify-content: center !important;
+    margin: 0 auto !important;
+    padding: .2rem;
+}
+
+.collapsible-body {
+    padding: .2rem;
+}
+
+.card-action {
+    padding: 0 !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    [class='collapsible'] {width: 75% !important;}
+}
+
+@media only screen and (max-width: 768px) {
+    [class='collapsible'] {width: 75% !important;}
+}
+
+@media only screen and (max-width: 480px) {
+    [class='collapsible'] {width: 35% !important;}
+}
