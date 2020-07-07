@@ -211,6 +211,15 @@ input {
     padding: 0 !important;
 }
 
+.draggable {
+    cursor: move;
+    cursor: grab;
+}
+
+.draggable:active {
+    cursor: grabbing;
+}
+
 @media only screen and (max-width: 1024px) {
     [class='collapsible'] {width: 75% !important;}
 }
