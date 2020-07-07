@@ -311,7 +311,7 @@ getMonsters();
 
 $(".battleBtn").on("click", function () {
     if ($(this).parents("#playerColumn").html() || $(this).parents("#monsterColumn").html()) {
-        $(this).closest(".row.draggable").appendTo("#battleContainer");
+        $(this).closest(".draggable").appendTo("#battleContainer");
         $(this).text("Remove");
     }
     else if ($(this).parents("#battleColumn").html()) {
@@ -320,7 +320,7 @@ $(".battleBtn").on("click", function () {
             $(this).text("Battle!")
         }
         else if ($(this).parents(".monster-card").html()) {
-            $(this).closest(".row.draggable").appendTo("#monsterContainer");
+            $(this).closest(".draggable").appendTo("#monsterContainer");
             $(this).text("Battle!")
         }
 
