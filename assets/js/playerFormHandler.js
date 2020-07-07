@@ -308,3 +308,21 @@ const getMonsters = () => {
         })
 }
 getMonsters();
+
+$(".battleBtn").on("click", function () {
+    if ($(this).parents("#playerColumn").html() || $(this).parents("#monsterColumn").html()) {
+        $(this).closest(".row.draggable").appendTo("#battleContainer");
+        $(this).text("Remove");
+    }
+    else if ($(this).parents("#battleColumn").html()) {
+        if ($(this).parents(".player-card").html()) {
+            $(this).closest(".draggable").appendTo("#playerContainer");
+            $(this).text("Battle!")
+        }
+        else if ($(this).parents(".monster-card").html()) {
+            $(this).closest(".row.draggable").appendTo("#monsterContainer");
+            $(this).text("Battle!")
+        }
+
+    }
+})
