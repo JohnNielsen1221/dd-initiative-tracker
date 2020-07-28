@@ -24,7 +24,7 @@
     --dark-blue: #01008C;
 }
 
-.nav-wrapper {
+.nav-wrapper, .warning {
     background-color: var(--clear);
     font-weight: bold;
     text-shadow: 0 0 5px white, 0 0 10px darkorange, 0 0 15px red;
