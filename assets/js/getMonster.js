@@ -106,6 +106,8 @@ function getMonster(name) {
 
                 $("<button>").addClass("btn battleBtn").text("Battle!").appendTo(monsterCardEl);
 
+                // $("<button>").addClass("btn deleteBtn").text("DELETE").appendTo(monsterCardEl);
+
                 var monsterContainerEl = document.getElementById('monsterContainer');
                 monsterContainerEl.append(monsterCardEl);
 
