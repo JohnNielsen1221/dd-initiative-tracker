@@ -1,4 +1,5 @@
 var searchEl = document.getElementById('search-button');
+var epicSound = new Audio('epic-sound.mp3')
 var searchHistory = JSON.parse(localStorage.getItem('monster')) || [];
 var inputEl = document.getElementById('autocomplete');
 var queryURL = 'https://www.dnd5eapi.co/api/monsters/';
@@ -6,6 +7,8 @@ var sorryButtonEl = document.getElementById('sorry-button');
 var nonMonsterInput = document.getElementById('non-monster-modal');
 searchEl.addEventListener('click', function () {
     var searchTerm = inputEl.value.toLowerCase();
+    epicSound.play();
+    epicSound.currentTime=0;
     getMonster(searchTerm);
 });
 
@@ -33,7 +36,6 @@ function getMonster(name) {
                     "monsterName": response.data.name,
                     "monsterAttributes": response.data.size + ', ' + response.data.alignment,
                     "monsterHP": response.data.hit_points,
-                    // "monsterStats": 'STR: ' + response.data.strength + '\nDEX: ' + response.data.dexterity + '\nINT: ' + response.data.intelligence + '\nWIS: ' + response.data.wisdom + '\nCON: ' + response.data.constitution + '\nCHA: ' + response.data.charisma,
                     "monsterStrength": response.data.strength,
                     "monsterDex": response.data.dexterity,
                     "monsterInt": response.data.intelligence,
@@ -105,8 +107,6 @@ function getMonster(name) {
                 M.Collapsible.init(monsterSpeed);
 
                 $("<button>").addClass("btn battleBtn").text("Battle!").appendTo(monsterCardEl);
-
-                // $("<button>").addClass("btn deleteBtn").text("DELETE").appendTo(monsterCardEl);
 
                 var monsterContainerEl = document.getElementById('monsterContainer');
                 monsterContainerEl.append(monsterCardEl);
