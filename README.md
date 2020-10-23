@@ -41,8 +41,8 @@ This program will allow the Dungeon Master to set up the players and the monster
 - Google Fonts
 
 ## Screenshots
-![DD Screenshot](assets/images/ddscreenshot1.png)
-![DD Screenshot](assets/images/ddscreenshot1.png)
+![DD Screenshot](assets/images/ddscreenshot1.jpg)
+![DD Screenshot](assets/images/ddscreenshot1.jpg)
 
 
 ## Status
